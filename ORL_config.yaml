@@ -1,0 +1,23 @@
+dataset:
+  num_class:    40  # number of subjects
+  num_per_class: 10  # images per subjects
+  data_path:   "./Data/ORL_32x32.mat" #dataset
+
+model:
+  kernel_size: [3, 3, 3]
+  num_hidden:  [3, 3, 5]
+  input_shape: [32, 32]
+  input_shape_for_decoder: [4, 4, 5]
+  pretrained_model: "checkpoint/pre_train_orl/ck.ckpt" # pre-trained model on 38 subjects
+
+training:
+  lambdas:     [1.0, 7, 2.5]
+  gama: 0.01 # 0.01
+  num_epoch:   4000
+  num_epoch_per_print: 30
+  num_epoch_pre: 5000
+
+cluster:
+  d: 7
+  alpha: 1
+  ro: 0.2 # 0.2
